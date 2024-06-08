@@ -1,3 +1,24 @@
 body {
-    background-color: grey;
+    background-color: #2a3957;
+    font-family: Arial, sans-serif;
+    color: white;
+    padding: 5px;
+    max-width: 1200px;
+    margin-right: auto;
 }
+
+a:link,
+a:visited {
+    text-decoration: none;
+    background-color: #EDEADE;
+    color: black;
+    padding: 1px;
+}
+
+a:hover,
+a:active {
+    color: white;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 3px;
+}
+

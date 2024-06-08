@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -5,11 +6,12 @@
     	<link rel="stylesheet" type="text/css" href="/static/main.css">
         <title>{{.title}}</title>
 </head>
-{{ .title }}
-    <main>
-        <body>
-            <a href="/blog">articles</a> <a href="/about">about</a>
-            <hr>
-        </body>
-    </main>
+    <body>
+        <main>
+            <h1>blog page </h1>
+        {{ range .entries }}
+        <p><a href="/entry/{{ . }}">{{ . }}</a></p>
+        {{ end }}
+        </main>
+    </body>
 </html>
