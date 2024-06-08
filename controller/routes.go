@@ -1,4 +1,4 @@
-package main
+package controller
 
 import (
 	"fmt"
@@ -10,25 +10,9 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/gomarkdown/markdown"
-	"github.com/gomarkdown/markdown/html"
-	"github.com/gomarkdown/markdown/parser"
 )
 
-
-func mdToHTML(md []byte) []byte {
-	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.NoEmptyLineBeforeBlock
-	p := parser.NewWithExtensions(extensions)
-	doc := p.Parse(md)
-
-	htmlFlags := html.CommonFlags | html.HrefTargetBlank
-	opts := html.RendererOptions{Flags: htmlFlags}
-	renderer := html.NewRenderer(opts)
-
-	return markdown.Render(doc, renderer)
-}
-
-func main() {
+func startupRoutes() {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
 	router.Static("/static", "./static")
@@ -59,14 +43,14 @@ func main() {
 
 	router.GET("/about", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "about.html", gin.H{
-			"title":   "ABOUT_TITLE_CONFIG",
+			"title":   "TITLE_CONFIG",
 		})
 	})
 
 	router.GET("/blog", func(c *gin.Context) {
         created := time.Now()
 		c.HTML(http.StatusOK, "blog.html", gin.H{
-			"title":   "BLOG_TITLE_CONFIG",
+			"title":   "TITLE_CONFIG",
             "created": created.Format("Jan 2, 2006"), 
 			"entries": entries,
 		})

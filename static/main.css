@@ -2,23 +2,36 @@ body {
     background-color: #2a3957;
     font-family: Arial, sans-serif;
     color: white;
-    padding: 5px;
-    max-width: 1200px;
+    max-width: 1100px;
     margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+nav {
+    width: 65px;
+    margin: 10px;
+    line-height: 35px;
+}
+
+table, th, td {
+  border: 2px solid black;
+  position: sticky;
+  margin: 2px;
+  padding: 10px;
 }
 
 a:link,
 a:visited {
     text-decoration: none;
-    background-color: #EDEADE;
-    color: black;
-    padding: 1px;
+    color: white;
 }
 
 a:hover,
 a:active {
     color: white;
-    background-color: rgba(0, 0, 0, .4);
-    padding: 3px;
+    text-decoration: underline;
 }
 

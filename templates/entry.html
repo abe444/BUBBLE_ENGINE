@@ -6,11 +6,33 @@
         <title>{{.title}}</title>
 </head>
     <body>
-        {{.entries}}
-        <ul>
-{{ range .modified }}
-    <p>[Updated on: {{ . }}]</p>
-{{ end }}
-</ul>
+            <table>
+                </tbody>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    <hr>
+                        <h1> {{ .title }} </h1>
+                    <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="TOP">
+                        <nav>
+                          <a href="/about">./about</a>
+                           <br>
+                           <a href="/blog">./articles</a> 
+                        </nav>
+                    </td>
+                    <td valign="TOP">
+                        {{.entries}}
+                        {{ range .modified }}
+                        <p><span style="color: yellow;">[Last updated: {{ . }}]</span></p>
+                        {{ end }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
     </body>
 </html>
