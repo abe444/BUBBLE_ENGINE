@@ -20,6 +20,8 @@
                 <tr>
                     <td valign="TOP">
                         <nav>
+                          <a href="/">./home</a>
+                           <br>
                           <a href="/about">./about</a>
                            <br>
                            <a href="/blog">./articles</a> 
@@ -28,6 +30,9 @@
                     <td valign="TOP">
                         {{.entries}}
                         {{ range .modified }}
+                        <center>
+                        <a style="font-weight: bold;" href="#top">Top</a>
+                        </center>
                         <p><span style="color: yellow;">[Last updated: {{ . }}]</span></p>
                         {{ end }}
                     </td>

@@ -6,7 +6,7 @@ body {
     margin-right: auto;
 }
 
-h1 {
+.indexBanner {
     text-align: center;
 }
 
@@ -19,7 +19,7 @@ nav {
 table, th, td {
   border: 2px solid black;
   position: sticky;
-  margin: 2px;
+  margin: 10px;
   padding: 10px;
 }
 
