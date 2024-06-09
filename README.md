@@ -5,7 +5,7 @@ Source code for an experimental blogging system written in Go.
 Blogging is fun. It's even more fun when using simple tools to get articles quickly up and running.  
 The BUBBLE engine is meant to be that simple tool that allows for extreme ease of use. 
 
-## CORE COMMANDS:
+## CORE COMMANDS [NOT READY YET! STILL WORKING ON SOME THANGS! 🤠]:
 
 ### Initial setup:
 This will walk you through some steps to getting the engine properly configured.
@@ -41,7 +41,7 @@ $ bubble restart
 - Sort article entries by date format: YYYY-MM-DD_[ENTRY].md.
 - Engine setup system.
 - Setup tag system.
-- Setup Archiving system.
+- Setup archiving system.
 - RSS.
 
 ## EXPERIMENTAL:
