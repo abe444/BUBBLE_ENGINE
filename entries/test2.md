@@ -1,6 +1,8 @@
-## test file 2 
+<center>
+# test file 2 
 
 ### date
+</center>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor orci eu lobortis elementum nibh tellus. Malesuada fames ac turpis egestas maecenas pharetra convallis. Aliquam ultrices sagittis orci a scelerisque purus semper. Et malesuada fames ac turpis egestas maecenas pharetra. Neque egestas congue quisque egestas diam in. Odio morbi quis commodo odio aenean sed. Suspendisse interdum consectetur libero id. Consectetur a erat nam at lectus urna duis convallis. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim.
 

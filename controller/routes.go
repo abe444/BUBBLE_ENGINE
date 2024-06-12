@@ -3,38 +3,24 @@ package controller
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
-	"strings"
 	"time"
 
+	"github.com/abe444/BUBBLE_ENGINE/functions"
 	"github.com/gin-gonic/gin"
 )
 
-func startupRoutes() {
-	router := gin.Default()
-	router.LoadHTMLGlob("templates/*")
-	router.Static("/static", "./static")
-	router.StaticFile("/favicon.ico", "./favicon.ico")
-
-
-	var entries []string
-
-	err := filepath.Walk("entries", func(path string, info os.FileInfo, err error) error {
-		if err != nil {
-			return err
-		}
-		if !info.IsDir() && strings.HasSuffix(info.Name(), ".md") {
-			entries = append(entries, strings.TrimSuffix(info.Name(), ".md"))
-		}
-		return nil
-	})
-	if err != nil {
-		panic(err)
-	}
+func StartupRoutes(router *gin.Engine) {
 
 	router.GET("/", func(c *gin.Context) {
+		entries, err := functions.ListMarkdownFiles("./entries",)
+        if err != nil {
+           log.Fatal(err)
+        }
+
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title":   "TITLE_CONFIG",
 			"entries": entries,
@@ -47,13 +33,42 @@ func startupRoutes() {
 		})
 	})
 
+	router.GET("/panel", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "userPanel.html", gin.H{
+			"title":   "USER_PANEL_TITLE_CONFIG",
+			"name":   "PANEL_NAME_CONFIG",
+		})
+	})
+
 	router.GET("/blog", func(c *gin.Context) {
+		entries, err := functions.ListMarkdownFiles("./entries",)
+        if err != nil {
+           log.Fatal(err)
+        }
+
         created := time.Now()
 		c.HTML(http.StatusOK, "blog.html", gin.H{
 			"title":   "TITLE_CONFIG",
             "created": created.Format("Jan 2, 2006"), 
 			"entries": entries,
 		})
+	})
+
+	router.POST("/submit_article", func(c *gin.Context) {
+        file, err := c.FormFile("submit_article")
+        if err != nil {
+            c.String(http.StatusBadRequest, "error %v", err)
+            return
+        }
+
+        filePath := filepath.Join("./entries", file.Filename)
+        err = c.SaveUploadedFile(file, filePath)
+        if err != nil {
+            c.String(http.StatusInternalServerError, "Error saving file: %v", err)
+            return
+        }
+        
+        c.Redirect(http.StatusFound, "/")
 	})
 
 	router.GET("/entry/:post", func(c *gin.Context) {
@@ -66,7 +81,7 @@ func startupRoutes() {
 		}
 
 		md := entries
-		html := mdToHTML(md)
+		html := functions.MdToHTML(md)
 
         fileInfo, err := os.Stat(path)
         if err != nil {
