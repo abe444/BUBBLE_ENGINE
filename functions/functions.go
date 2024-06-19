@@ -4,8 +4,11 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
+	"time"
 
+    "github.com/abe444/BUBBLE_ENGINE/types"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
@@ -44,16 +47,18 @@ func EntryDate(dirPath string) (string, error) {
 
 func ListMarkdownFiles(dirPath string) ([]string, error) {
     var entries []string
+    fileInfos := make([]types.FileInfo, 0)
 
     err := filepath.Walk(dirPath, func(path string, info os.FileInfo, err error) error {
         if err != nil {
             return err
         }
-
         if !info.IsDir() && strings.HasSuffix(info.Name(), ".md") {
-            entries = append(entries, strings.TrimSuffix(info.Name(), ".md"))
+            fileInfos = append(fileInfos, types.FileInfo{
+                Name: strings.TrimSuffix(info.Name(), ".md"),
+                ModTime: info.ModTime(),
+            })
         }
-
         return nil
     })
 
@@ -61,9 +66,16 @@ func ListMarkdownFiles(dirPath string) ([]string, error) {
         return nil, err
     }
 
+    sort.Slice(fileInfos, func(i, j int) bool {
+        return fileInfos[i].ModTime.After(fileInfos[j].ModTime)
+    })
+
+    for _, fi := range fileInfos {
+        entries = append(entries, fi.Name)
+    }
+
     return entries, nil
 }
-
 
 // Format filename. 
 func DocumentFormatter(filepath string) string {
