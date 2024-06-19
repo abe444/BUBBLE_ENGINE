@@ -46,10 +46,14 @@ func StartupRoutes(router *gin.Engine) {
            log.Fatal(err)
         }
 
-        created := time.Now()
+		created, err := functions.EntryDate("./entries",)
+        if err != nil {
+           log.Fatal(err)
+        }
+
 		c.HTML(http.StatusOK, "blog.html", gin.H{
 			"title":   "TITLE_CONFIG",
-            "created": created.Format("Jan 2, 2006"), 
+            "created": created,
 			"entries": entries,
 		})
 	})
@@ -61,13 +65,13 @@ func StartupRoutes(router *gin.Engine) {
             return
         }
 
-        filePath := filepath.Join("./entries", file.Filename)
+        submissionTime := time.Now()
+        filePath := filepath.Join("./entries", submissionTime.Format("2006-01-02_") + file.Filename)
         err = c.SaveUploadedFile(file, filePath)
         if err != nil {
             c.String(http.StatusInternalServerError, "Error saving file: %v", err)
             return
         }
-        
         c.Redirect(http.StatusFound, "/")
 	})
 

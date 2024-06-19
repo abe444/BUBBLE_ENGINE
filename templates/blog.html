@@ -29,14 +29,10 @@
                            <a href="/blog">./articles</a> 
                         </nav>
                     </td>
-                    <td height=500 valign="TOP">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Nunc scelerisque viverra mauris in. Egestas pretium aenean
-                        pharetra magna ac placerat vestibulum. Diam in arcu cursus euismod. Viverra aliquet eget sit
-                        amet tellus. Vulputate mi sit amet mauris commodo. Sit amet justo donec enim diam vulputate ut.
-                        {{ range .entries }}
-                            <p>📜 <a href="/entry/{{ . }}">{{ . }}</a></p>
-                        {{ end }}
+                    <td height=500 width=900 valign="TOP">
+                      {{ range .entries }}<p>📜 <a href="/entry/{{ . }}">[{{ .
+                            }}]</a></p>{{ end }} 
+
                     </td>
                 </tr>
                 </tbody>

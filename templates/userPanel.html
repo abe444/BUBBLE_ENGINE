@@ -30,12 +30,18 @@
                     </td>
                     <td height=500 valign="TOP">
                         <p>
-                        Welcome, {{ .name }}. 
+                        Welcome, {{ .name }}. Submit a new article entry now!
                         </p>
                         <div class="forms">
                           <form action="/submit_article" method="post" enctype="multipart/form-data">
+                              <pre> Filename example: article_entry.md </pre>
                               <input name="submit_article" type="file" accept="file/md"
-                                  required>
+                                                                       required> 
+                              <ul>
+                              <li style="font-family: monospace;"> Max upload size: # MB.</li>
+                              <li style="font-family: monospace;"> Markdown only. </li>
+                              </ul>
+
                            <button>Submit article</button>
                        </form>
                         </div>

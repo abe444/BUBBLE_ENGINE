@@ -1,6 +1,7 @@
 package functions
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -20,6 +21,25 @@ func MdToHTML(md []byte) []byte {
 	renderer := html.NewRenderer(opts)
 
 	return markdown.Render(doc, renderer)
+}
+
+func EntryDate(dirPath string) (string, error) {
+        var entries []string
+    err := filepath.Walk(dirPath, func(path string, info os.FileInfo, err error) error {
+        if err != nil {
+            return err
+        }
+        if !info.IsDir() && strings.HasSuffix(info.Name(), ".md") {
+            createdAt := info.ModTime().Format("Jan 2, 2006")
+            entry := fmt.Sprintf("%s (%s)", strings.TrimSuffix(info.Name(), ".md"), createdAt)
+            entries = append(entries, entry)
+        }
+        return nil
+    })
+    if err != nil {
+        return "", err
+    }
+    return strings.Join(entries, "\n"), nil
 }
 
 func ListMarkdownFiles(dirPath string) ([]string, error) {
@@ -43,6 +63,7 @@ func ListMarkdownFiles(dirPath string) ([]string, error) {
 
     return entries, nil
 }
+
 
 // Format filename. 
 func DocumentFormatter(filepath string) string {
