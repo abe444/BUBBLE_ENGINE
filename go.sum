@@ -1,3 +1,9 @@
+github.com/abe444/BUBBLE_ENGINE/controller v0.0.0-20240619181916-1d004dc1ce18 h1:CLTNYcCSSXGRRIh+A1eKCm70ZMCmuJTbnuhGCoWlRmA=
+github.com/abe444/BUBBLE_ENGINE/controller v0.0.0-20240619181916-1d004dc1ce18/go.mod h1:Py67dhCBQQSMEYJgrK74+6Lhz7+lP+gQEz1Gf9ZAmBI=
+github.com/abe444/BUBBLE_ENGINE/functions v0.0.0-20240619181916-1d004dc1ce18 h1:g9R5ngUJIQi+88SNFX4M5LY6UWzmY5fBOHWefiab0o0=
+github.com/abe444/BUBBLE_ENGINE/functions v0.0.0-20240619181916-1d004dc1ce18/go.mod h1:38QdeYeCWdoQ/QWlVO/g9E2jNNrbDUY/WqAxXTxb6Vw=
+github.com/abe444/BUBBLE_ENGINE/types v0.0.0-20240619181916-1d004dc1ce18 h1:5rFmWIHuWTrApQ0V9ybgXrdUX6/EJ7yeYWQVhuuUF/Y=
+github.com/abe444/BUBBLE_ENGINE/types v0.0.0-20240619181916-1d004dc1ce18/go.mod h1:siGU35oztNSlwfC5zz7ZnlbCS+5rE7gvZ69deFJ11mY=
 github.com/bytedance/sonic v1.11.6 h1:oUp34TzMlL+OY1OUWxHqsdkgC/Zfc85zGqw9siXjrc0=
 github.com/bytedance/sonic v1.11.6/go.mod h1:LysEHSvpvDySVdC2f87zGWf6CIKJcAvqab1ZaiQtds4=
 github.com/bytedance/sonic/loader v0.1.1 h1:c+e5Pt1k/cy5wMveRDyk2X4B9hF4g7an8N3zCYjJFNM=
@@ -49,8 +55,6 @@ github.com/pelletier/go-toml/v2 v2.2.2 h1:aYUidT7k73Pcl9nb2gScu7NSrKCSHIDE89b3+6
 github.com/pelletier/go-toml/v2 v2.2.2/go.mod h1:1t835xjRzz80PqgE6HHgN2JOsmgYu/h4qDAS4n929Rs=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/russross/blackfriday/v2 v2.1.0 h1:JIOH55/0cWyOuilr9/qlrm0BSXldqnqwMsf35Ld67mk=
-github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
 github.com/stretchr/objx v0.5.0/go.mod h1:Yh+to48EsGEfYuaHDzXPcE3xhTkx73EhmCGUpEOglKo=

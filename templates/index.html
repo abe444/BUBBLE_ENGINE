@@ -1,10 +1,8 @@
 <html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<link rel="stylesheet" type="text/css" href="/static/main.css">
-        <title>{{ .title }}</title>
-</head>
+    <head>
+    {{ .headerTags }}
+    </head>
+    <title> {{ .title }} </title>
     <main>
         <body>
             <table>
@@ -21,13 +19,15 @@
                 <tr>
                     <td valign="TOP">
                         <nav>
+                            <!--
                           <a href="/about">./about</a>
                            <br>
                            <a href="/blog">./articles</a> 
                            <br>
-                           <a href="/panel">./panel</a> 
+                           <a href="/panel">./submit</a> 
                            <br>
                            <a href="/login" style="height: 45px; position: absolute; bottom: 0;">./login</a>
+                           --!>
                         </nav>
                     </td>
                     <td height=500 valign="TOP">

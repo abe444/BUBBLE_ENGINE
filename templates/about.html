@@ -1,10 +1,8 @@
 <html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<link rel="stylesheet" type="text/css" href="/static/main.css">
-        <title>{{.title}}</title>
-</head>
+    <head>
+    {{ .headerTags }}
+    </head>
+    <title> {{ .title }} </title>
     <body>
             <table>
                 <tbody>
@@ -27,7 +25,7 @@
                            <a href="/blog">./articles</a> 
                         </nav>
                     </td>
-                    <td height=500 valign="TOP">
+                    <td height=500 width=1000 valign="TOP">
                         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Nunc scelerisque viverra mauris in. Egestas pretium aenean
                         pharetra magna ac placerat vestibulum. Diam in arcu cursus euismod. Viverra aliquet eget sit

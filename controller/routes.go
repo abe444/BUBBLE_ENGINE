@@ -10,31 +10,45 @@ import (
 	"time"
 
 	"github.com/abe444/BUBBLE_ENGINE/functions"
+	"github.com/abe444/BUBBLE_ENGINE/types"
 	"github.com/gin-gonic/gin"
 )
 
 func StartupRoutes(router *gin.Engine) {
 
 	router.GET("/", func(c *gin.Context) {
+
+        links := []types.Link{
+            {Href: "/home", Text: "Home"},
+            {Href: "/about", Text: "About"},
+            {Href: "/contact", Text: "Contact"},
+        }
+
 		entries, err := functions.ListMarkdownFiles("./entries",)
         if err != nil {
            log.Fatal(err)
         }
 
 		c.HTML(http.StatusOK, "index.html", gin.H{
+			"headerTags": template.HTML(functions.DisplayHead()),
 			"title":   "TITLE_CONFIG",
+            "links": links,
 			"entries": entries,
 		})
 	})
 
+    /*
 	router.GET("/about", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "about.html", gin.H{
+			"headerTags": template.HTML(functions.DisplayHead()),
 			"title":   "TITLE_CONFIG",
 		})
 	})
+    */
 
 	router.GET("/panel", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "userPanel.html", gin.H{
+			"headerTags": template.HTML(functions.DisplayHead()),
 			"title":   "USER_PANEL_TITLE_CONFIG",
 			"name":   "PANEL_NAME_CONFIG",
 		})
@@ -46,14 +60,10 @@ func StartupRoutes(router *gin.Engine) {
            log.Fatal(err)
         }
 
-		created, err := functions.EntryDate("./entries",)
-        if err != nil {
-           log.Fatal(err)
-        }
 
 		c.HTML(http.StatusOK, "blog.html", gin.H{
+			"headerTags": template.HTML(functions.DisplayHead()),
 			"title":   "TITLE_CONFIG",
-            "created": created,
 			"entries": entries,
 		})
 	})
@@ -98,6 +108,7 @@ func StartupRoutes(router *gin.Engine) {
         formattedModifiedTimes[0] = modifiedTime.Format("January 2, 2006") 
 
 		c.HTML(http.StatusOK, "entry.html", gin.H{
+			"headerTags": template.HTML(functions.DisplayHead()),
 			"title":   "TITLE_CONFIG",
             "created": formattedModifiedTimes,
             "modified": formattedModifiedTimes,

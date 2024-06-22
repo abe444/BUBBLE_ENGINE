@@ -1,14 +1,12 @@
 package functions
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
-	"time"
 
-    "github.com/abe444/BUBBLE_ENGINE/types"
+	"github.com/abe444/BUBBLE_ENGINE/types"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
@@ -26,6 +24,7 @@ func MdToHTML(md []byte) []byte {
 	return markdown.Render(doc, renderer)
 }
 
+/*
 func EntryDate(dirPath string) (string, error) {
         var entries []string
     err := filepath.Walk(dirPath, func(path string, info os.FileInfo, err error) error {
@@ -44,6 +43,7 @@ func EntryDate(dirPath string) (string, error) {
     }
     return strings.Join(entries, "\n"), nil
 }
+*/
 
 func ListMarkdownFiles(dirPath string) ([]string, error) {
     var entries []string
@@ -77,12 +77,3 @@ func ListMarkdownFiles(dirPath string) ([]string, error) {
     return entries, nil
 }
 
-// Format filename. 
-func DocumentFormatter(filepath string) string {
-    var outputFormat string = "YYYY-DD-MM_[ENTRY_TITLE].md"
-    return outputFormat
-}
-
-// Send MD document to filesystem.
-func WriteEntry (){
-}

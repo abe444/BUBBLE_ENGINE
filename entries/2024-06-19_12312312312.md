@@ -1,6 +1,6 @@
+<center>
 # This is a test file
 
-<center>
 ### yyyy/dd/mm
 </center>
 
