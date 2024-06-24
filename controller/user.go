@@ -18,7 +18,7 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	user, err := models.GetUserByUsername(input.Username)
+	user, err := model.GetUserByUsername(input.Username)
 	if err != nil || user == nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid username or password"})
 		return

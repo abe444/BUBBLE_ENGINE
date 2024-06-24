@@ -2,36 +2,21 @@ package util
 
 import (
 	"database/sql"
-	"log"
-	"os"
+	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/joho/godotenv"
 )
 
 var Db *sql.DB
 
-func init() {
-
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
-	dbUser := os.Getenv("DB_USER")
-	dbPassword := os.Getenv("DB_PASSWORD")
-	dbName := os.Getenv("DB_NAME")
-	dbPort := os.Getenv("DB_PORT")
-
-	bubbleDsn := "user=" + dbUser + " password=" + dbPassword + " dbname=" + dbName + " port=" + dbPort + " sslmode=disable"
-
+func Connect() {
 	var err error
-	Db, err = sql.Open("mariadb", bubbleDsn)
+	Db, err = sql.Open("mariadb", "abe:pass1234@tcp(127.0.0.1:3306)/bubble")
 	if err != nil {
-		panic("Failed to connect to database")
+		panic(err.Error())
 	}
-
-	err = Db.Ping()
-	if err != nil {
-		panic("Failed to ping database")
+	if err = Db.Ping(); err != nil {
+		panic(err.Error())
 	}
+	fmt.Println("Successfully connected to the database.")
 }
