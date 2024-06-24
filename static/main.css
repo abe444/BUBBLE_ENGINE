@@ -8,7 +8,9 @@ body {
 
 
 .forms button,
-.forms input, button, input {
+.forms input,
+button,
+input {
     background: #000000;
     color: #00f3ff;
     border: 1px solid #066cc6;
@@ -17,6 +19,30 @@ body {
     vertical-align: middle;
 }
 
+.avatar {
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border: 1px solid aqua;
+    border-radius: 50%;
+}
+
+.user_blogs {
+    border: 1px solid aqua;
+    padding: 20px;
+}
+
+.user_listing:hover {
+    background-color: #00f3ff;
+    opacity: .8;
+}
+
+.user_listing {
+    border: 1px solid rgb(22, 143, 241);
+    margin: 5px;
+    padding: 5px;
+    display: table;
+}
 
 nav {
     width: 65px;
@@ -24,11 +50,13 @@ nav {
     line-height: 35px;
 }
 
-table, th, td {
-  border: 2px solid #4c9fd0;
-  position: sticky;
-  margin: 10px;
-  padding: 10px;
+table,
+th,
+td {
+    border: 2px solid #4c9fd0;
+    position: sticky;
+    margin: 10px;
+    padding: 10px;
 }
 
 a:link,
@@ -42,4 +70,3 @@ a:active {
     color: white;
     text-decoration: underline;
 }
-

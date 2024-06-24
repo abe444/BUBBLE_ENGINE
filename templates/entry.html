@@ -18,23 +18,27 @@
                 <tr>
                     <td valign="TOP">
                         <nav>
-                          <a href="/">./home</a>
+                          <a href="/">/home</a>
                            <br>
-                          <a href="/about">./about</a>
-                           <br>
-                           <a href="/blog">./articles</a> 
+                           <a href="/blog"><span style="color: #42f7d5;">/blog</span></a>
                         </nav>
                     </td>
                     <td height=500 valign="TOP">
                         {{.entries}}
                         {{ range .modified }}
-                        <center>
-                        <a style="font-weight: bold;" href="#top">Top</a>
-                        </center>
-                        <p><span style="color: yellow;">[Last updated: {{ . }}]</span></p>
-                        {{ end }}
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                       </td>
+                          <td>
+                            <center>
+                                <br><a style="font-weight: bold;" href="#top">Top</a>
+                                <p><span style="color: yellow;">[Last updated: {{ . }}]</span></p>
+                        </center>
+                       </td>
+                </tr>
+                        {{ end }}
                 </tbody>
             </table>
     </body>

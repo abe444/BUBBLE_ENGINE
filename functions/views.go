@@ -29,3 +29,10 @@ func DisplayTable() string {
                 </tbody>
             </table>`
 }
+
+func DisplayBottom() string {
+         return  `<center>
+                      <a style="font-weight: bold;" href="#top">Top</a>
+                           <p><span style="color: yellow;">[Last updated: {{ . }}]</span></p>
+             </center>`
+}

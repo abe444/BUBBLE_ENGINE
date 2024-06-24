@@ -25,55 +25,47 @@ func MdToHTML(md []byte) []byte {
 }
 
 /*
-func EntryDate(dirPath string) (string, error) {
-        var entries []string
-    err := filepath.Walk(dirPath, func(path string, info os.FileInfo, err error) error {
-        if err != nil {
-            return err
-        }
-        if !info.IsDir() && strings.HasSuffix(info.Name(), ".md") {
-            createdAt := info.ModTime().Format("Jan 2, 2006")
-            entry := fmt.Sprintf("%s (%s)", strings.TrimSuffix(info.Name(), ".md"), createdAt)
-            entries = append(entries, entry)
-        }
-        return nil
-    })
-    if err != nil {
-        return "", err
-    }
-    return strings.Join(entries, "\n"), nil
+func AuthenticateReq() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		accessCode := c.GetHeader("X-Access-Code")
+		if accessCode != ACCESS_CODE {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+			c.Abort()
+			return
+		}
+		c.Next()
+	}
 }
 */
 
 func ListMarkdownFiles(dirPath string) ([]string, error) {
-    var entries []string
-    fileInfos := make([]types.FileInfo, 0)
+	var entries []string
+	fileInfos := make([]types.FileInfo, 0)
 
-    err := filepath.Walk(dirPath, func(path string, info os.FileInfo, err error) error {
-        if err != nil {
-            return err
-        }
-        if !info.IsDir() && strings.HasSuffix(info.Name(), ".md") {
-            fileInfos = append(fileInfos, types.FileInfo{
-                Name: strings.TrimSuffix(info.Name(), ".md"),
-                ModTime: info.ModTime(),
-            })
-        }
-        return nil
-    })
+	err := filepath.Walk(dirPath, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if !info.IsDir() && strings.HasSuffix(info.Name(), ".md") {
+			fileInfos = append(fileInfos, types.FileInfo{
+				Name:    strings.TrimSuffix(info.Name(), ".md"),
+				ModTime: info.ModTime(),
+			})
+		}
+		return nil
+	})
 
-    if err != nil {
-        return nil, err
-    }
+	if err != nil {
+		return nil, err
+	}
 
-    sort.Slice(fileInfos, func(i, j int) bool {
-        return fileInfos[i].ModTime.After(fileInfos[j].ModTime)
-    })
+	sort.Slice(fileInfos, func(i, j int) bool {
+		return fileInfos[i].ModTime.After(fileInfos[j].ModTime)
+	})
 
-    for _, fi := range fileInfos {
-        entries = append(entries, fi.Name)
-    }
+	for _, fi := range fileInfos {
+		entries = append(entries, fi.Name)
+	}
 
-    return entries, nil
+	return entries, nil
 }
-

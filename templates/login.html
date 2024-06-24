@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    {{ .headerTags }}
+</head>
+<title> {{ .title }} </title>
+<main>
+
+    <body>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                    </td>
+                    <td width=1000 valign="TOP">
+                        <hr>
+                        <h1> {{ .title }} </h1>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="TOP">
+                        <nav>
+                            <a href="/">../</a>
+                            <br>
+                            <a href="/blog">/blog</a>
+                            <br>
+                            <a href="/panel">/panel</a>
+                            <br>
+                            <a href="/login" style=" color: aqua; height: 45px; position: absolute; bottom: 0;">/login</a>
+                        </nav>
+                    </td>
+                    <td height=500 valign="TOP">
+                        <h2>Login</h2>
+                        <div class="forms">
+                            <form action="/submit_article" method="post" enctype="multipart/form-data">
+                                <input id="username" name="username" type="text" size="35" placeholder="Username" required>
+                                <br><br><input id="password" name="password" type="text" size="35" placeholder="Password" required>
+                                <br><br><button>Login</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</main>
+
+</html>

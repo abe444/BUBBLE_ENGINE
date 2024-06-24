@@ -8,9 +8,10 @@ import (
 func main() {
 	router := gin.Default()
 
-    router.MaxMultipartMemory = 8 << 20  // 8 MiB
+    router.MaxMultipartMemory = 8 << 20  // 8 MB max upload size
 
 	router.LoadHTMLGlob("templates/*")
+	router.Static("/app", "./app")
 	router.Static("/entries", "./entries")
 	router.Static("/static", "./static")
 	router.StaticFile("/favicon.ico", "./favicon.ico")
