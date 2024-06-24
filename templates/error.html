@@ -1,0 +1,39 @@
+<html>
+    <head>
+    {{ .headerTags }}
+    </head>
+    <title> {{ .title }} </title>
+    <main>
+        <body>
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                    </td>
+                    <td width=1000 valign="TOP">
+                    <hr>
+                            <h1> {{ .title }} </h1>
+                    <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="TOP">
+                        <nav>
+                           <a href="/"><span style="color: #42f7d5;">/home</span></a> 
+                           <br>
+                           <a href="/blog">/blog</a> 
+                           <br>
+                           <a href="/panel">/panel</a> 
+                           <br>
+                           <a href="/login" style="height: 45px; position: absolute; bottom: 0;">/login</a>
+                        </nav>
+                    </td>
+                    <td height=500 valign="TOP">
+                        <p>{{ .message }}</p>
+                   </td>
+                </tr>
+                </tbody>
+            </table>
+        </body>
+    </main>
+</html>

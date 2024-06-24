@@ -24,20 +24,6 @@ func MdToHTML(md []byte) []byte {
 	return markdown.Render(doc, renderer)
 }
 
-/*
-func AuthenticateReq() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		accessCode := c.GetHeader("X-Access-Code")
-		if accessCode != ACCESS_CODE {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
-			c.Abort()
-			return
-		}
-		c.Next()
-	}
-}
-*/
-
 func ListMarkdownFiles(dirPath string) ([]string, error) {
 	var entries []string
 	fileInfos := make([]types.FileInfo, 0)

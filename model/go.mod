@@ -1,15 +1,15 @@
-module github.com/abe444/BUBBLE_ENGINE/functions
+module github.com/abe444/BUBBLE_ENGINE/model
 
 go 1.22.4
 
 require (
-	github.com/abe444/BUBBLE_ENGINE/types v0.0.0-20240624174616-ace9410a71bb
+	github.com/abe444/BUBBLE_ENGINE/functions v0.0.0-20240624174616-ace9410a71bb
 	github.com/gin-contrib/sessions v1.0.1
 	github.com/gin-gonic/gin v1.10.0
-	github.com/gomarkdown/markdown v0.0.0-20240419095408-642f0ee99ae2
 )
 
 require (
+	github.com/abe444/BUBBLE_ENGINE/types v0.0.0-20240624174616-ace9410a71bb // indirect
 	github.com/bytedance/sonic v1.11.6 // indirect
 	github.com/bytedance/sonic/loader v0.1.1 // indirect
 	github.com/cloudwego/base64x v0.1.4 // indirect
@@ -20,6 +20,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.20.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
+	github.com/gomarkdown/markdown v0.0.0-20240419095408-642f0ee99ae2 // indirect
 	github.com/gorilla/context v1.1.2 // indirect
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/gorilla/sessions v1.2.2 // indirect

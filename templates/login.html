@@ -27,18 +27,12 @@
                             <br>
                             <a href="/panel">/panel</a>
                             <br>
-                            <a href="/login" style=" color: aqua; height: 45px; position: absolute; bottom: 0;">/login</a>
+                            <a href="/logout" style=" color: aqua; height: 45px; position: absolute; bottom: 0;">/logout</a>
                         </nav>
                     </td>
                     <td height=500 valign="TOP">
-                        <h2>Login</h2>
-                        <div class="forms">
-                            <form action="/submit_article" method="post" enctype="multipart/form-data">
-                                <input id="username" name="username" type="text" size="35" placeholder="Username" required>
-                                <br><br><input id="password" name="password" type="text" size="35" placeholder="Password" required>
-                                <br><br><button>Login</button>
-                            </form>
-                        </div>
+                        <p style="text-align: center;">You are now logged in. Welcome {{ .user }}!</p>
+                        <p><a style="color:rgb(2, 255, 2);" href="/panel">Submit article</a></p>
                     </td>
                 </tr>
             </tbody>
