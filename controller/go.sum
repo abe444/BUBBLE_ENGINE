@@ -4,8 +4,8 @@ github.com/abe444/BUBBLE_ENGINE v0.0.0-20240624174616-ace9410a71bb h1:86h2OzkAZ/
 github.com/abe444/BUBBLE_ENGINE v0.0.0-20240624174616-ace9410a71bb/go.mod h1:W1fc1FJxScM9yav1QZtxvZaL3lxPkwPuCqfq9b5BnYY=
 github.com/abe444/BUBBLE_ENGINE/functions v0.0.0-20240624174616-ace9410a71bb h1:OmYXfOlJE+DpygVOBqoXphAzS3FhDl2bpXmu5Fsb4w0=
 github.com/abe444/BUBBLE_ENGINE/functions v0.0.0-20240624174616-ace9410a71bb/go.mod h1:38QdeYeCWdoQ/QWlVO/g9E2jNNrbDUY/WqAxXTxb6Vw=
-github.com/abe444/BUBBLE_ENGINE/types v0.0.0-20240624174616-ace9410a71bb h1:ta6iTN749Tqo5mI3hchwlGH1zpGzSooaKLymzQLG4nU=
-github.com/abe444/BUBBLE_ENGINE/types v0.0.0-20240624174616-ace9410a71bb/go.mod h1:siGU35oztNSlwfC5zz7ZnlbCS+5rE7gvZ69deFJ11mY=
+github.com/abe444/BUBBLE_ENGINE/types v0.0.0-20240619181916-1d004dc1ce18 h1:5rFmWIHuWTrApQ0V9ybgXrdUX6/EJ7yeYWQVhuuUF/Y=
+github.com/abe444/BUBBLE_ENGINE/types v0.0.0-20240619181916-1d004dc1ce18/go.mod h1:siGU35oztNSlwfC5zz7ZnlbCS+5rE7gvZ69deFJ11mY=
 github.com/abe444/BUBBLE_ENGINE/util v0.0.0-20240624170521-af8cdec4e7cb h1:GVHdwP4gv/xmlp3Lpn9EWqvnn+HU/Xn5zyt0xfPi12Q=
 github.com/abe444/BUBBLE_ENGINE/util v0.0.0-20240624170521-af8cdec4e7cb/go.mod h1:OGKPgR9YRTAHui4a+dJUX7js91RCnjoFbBCxvzufmA0=
 github.com/bytedance/sonic v1.11.6 h1:oUp34TzMlL+OY1OUWxHqsdkgC/Zfc85zGqw9siXjrc0=

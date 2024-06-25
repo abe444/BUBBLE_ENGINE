@@ -24,14 +24,10 @@
                             <a href="/">../</a>
                             <br>
                             <a href="/blog"><span style="color:#42f7d5;">/blog</span></a>
-                            <br>
-                            <a href="/panel">/panel</a>
                         </nav>
                     </td>
                     <td height=500 width=1000 valign="TOP">
                         <div class="user_blogs">
-                            <img src="/app/tmp_user/pfp/nib.png" alt="banner pic" class="avatar">
-                            <p><i> Top (#) recent entries: </i></p>
                             {{ range .entries }}
                             <div class="user_listing">
                                 📜 <a href="/entry/{{ . }}">{{ . }}</a>

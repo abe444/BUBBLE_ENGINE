@@ -7,11 +7,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/abe444/BUBBLE_ENGINE/functions"
-	"github.com/abe444/BUBBLE_ENGINE/model"
-	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
@@ -31,40 +28,12 @@ func StartupRoutes(router *gin.Engine) {
 		})
 	})
 
-	router.GET("/login", gin.BasicAuth(gin.Accounts{
-		"abe": "pass123",
-	}), func(c *gin.Context) {
-		user := c.MustGet(gin.AuthUserKey).(string)
-		session := sessions.Default(c)
-		session.Set("user", user)
-		session.Save()
-		c.HTML(http.StatusOK, "login.html", gin.H{
+	router.GET("/panel", func(c *gin.Context) {
+
+		c.HTML(http.StatusOK, "panel.html", gin.H{
 			"headerTags": template.HTML(functions.DisplayHead()),
 			"title":      "TITLE_CONFIG",
-			"user":       user,
 		})
-	})
-
-	authorized := router.Group("/")
-	authorized.Use(model.AuthRequired())
-	{
-		authorized.GET("/panel", func(c *gin.Context) {
-			user := sessions.Default(c).Get("user")
-			c.HTML(http.StatusOK, "userPanel.html", gin.H{
-				"headerTags": template.HTML(functions.DisplayHead()),
-				"title":      "USER_PANEL_TITLE_CONFIG",
-				"user":       user,
-			})
-		})
-	}
-
-	router.GET("/logout", func(c *gin.Context) {
-		session := sessions.Default(c)
-		session.Clear()
-		session.Save()
-		seconds := 3
-		time.Sleep(time.Duration(seconds) * time.Second)
-		c.Redirect(http.StatusFound, "/")
 	})
 
 	router.GET("/blog", func(c *gin.Context) {

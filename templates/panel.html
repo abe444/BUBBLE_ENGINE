@@ -26,25 +26,17 @@
                             <a href="/blog">/blog</a>
                             <br>
                             <a href="/panel"><span style="color:#42f7d5;">/panel</span></a>
-                            <br>
-                            <a href="/logout" style="height: 45px; position: absolute; bottom: 0;">/logout</a>
                         </nav>
                     </td>
                     <td height=500 valign="TOP">
-                        <img style="border: 1px solid aqua;" src="/app/tmp_user/banner/lainbot2.png" alt="banner pic"
-                            width="920" height="202;">
-                        <br>
-                        <br>
-                        <center>
-                            <img src="/app/tmp_user/pfp/nib.png" alt="banner pic" class="avatar">
-                            <br>
-                            <p>Welcome, {{ .user }}.</p>
-                        </center>
+                        <h1>Access <span style="color: rgb(0, 255, 0);">granted</span>.</h1>
                         <p>
                             Submit a new article entry now!
                         </p>
                         <div class="forms">
                             <form action="/submit_article" method="post" enctype="multipart/form-data">
+                                Written by:
+                                <input id="username" name="username" type="text" size="25" maxlength="120" placeholder="Name" required><br><br>
                                 <input name="submit_article" type="file" accept="file/md" required>
                                 <pre> Filename example: article_entry.md </pre>
                                 <ul>
@@ -55,22 +47,6 @@
                                 <button>Submit article</button>
                             </form>
                         </div>
-                        <hr>
-                        <h2>Account stats:</h2>
-                        <p>User: ####</p>
-                        <p>Access level: Member</p>
-                        <p>Creation date: #### / ## / ##</p>
-                        <p>Total entries submitted: ## </p>
-                        <form>
-                            <label>Change banner (920x202):</label>
-                            <input type="file" id="fileInput" name="files[]" accept=".png,  .jpeg,  .bmp,  .gif,  .jpg">
-                            <button>Submit</button>
-                        </form>
-                        <form>
-                            <label>Change pfp:</label>
-                            <input type="file" id="fileInput" name="files[]" accept=".png,  .jpeg,  .bmp,  .gif,  .jpg">
-                            <button>Submit</button>
-                        </form>
                     </td>
                 </tr>
             </tbody>

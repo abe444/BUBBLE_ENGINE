@@ -1,14 +1,13 @@
-CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,
-    username VARCHAR, 
-    password VARCHAR,
+CREATE TABLE access (
+    pw VARCHAR(90), 
     creation timestamp
 )
 
 CREATE TABLE entries (
     id BIGSERIAL PRIMARY KEY,
-    title VARCHAR(200)
-    author VARCHAR(150)
-    article INT, 
+    user VARCHAR(150),
+    filepath TEXT, 
+    filename TEXT, 
     creation timestamp
 )
+
